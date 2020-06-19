@@ -12,6 +12,12 @@ Singapore Government Technology Agency (GovTech): https://github.com/ndi-trusted
 
 ## How to Run
 
+Create virtual environment:
+
+```
+python3 -m venv env
+```
+
 Install all the required modules:
 
 ```
