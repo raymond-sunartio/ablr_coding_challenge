@@ -8,7 +8,7 @@ Singapore Government Technology Agency (GovTech): https://github.com/ndi-trusted
 
 ## Sequence diagram
 
-![alt text](https://https://github.com/raymond-sunartio/ablr_coding_challenge/blob/master/flow.png?raw=true)
+(https://https://github.com/raymond-sunartio/ablr_coding_challenge/blob/master/flow.png?raw=true)
 
 python manage.py migrate - mainly to setup session table
 
