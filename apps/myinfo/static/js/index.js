@@ -6,8 +6,6 @@ function formatDate(myinfoDateStr) {
         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
         'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
     ];
-	if (typeof myinfoDateStr !== 'string')
-		console.log('what?!');
     const fields = myinfoDateStr.split('-');
     if ((fields.length < 2) || (fields.length > 3))
         return myinfoDateStr;

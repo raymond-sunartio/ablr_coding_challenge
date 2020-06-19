@@ -13,7 +13,7 @@
     <title>ABLR Coding Challenge</title>
   </head>
   <body>
-    {% csrf_token %}
+    <form>{% csrf_token %}</form>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -27,7 +27,7 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     {% if error %}
-        <div class="container">
+        <div id="error" class="container">
             <div class="alert alert-danger">
                 <p>{{error}}</p>
                 {% if error_desc %}
