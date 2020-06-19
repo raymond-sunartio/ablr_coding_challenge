@@ -449,11 +449,13 @@ class App extends React.Component {
     
     componentDidMount() {
         if (window.location.href.indexOf('callback') > -1) {
-            this.setState({
-                isLoading: true,
-            });
             const params = new URLSearchParams(window.location.search);
-            this.getPerson(params.get('code'));
+            if (params.get('code')) {
+                this.setState({
+                    isLoading: true,
+                });
+                this.getPerson(params.get('code'));
+            }
         }
     }
     

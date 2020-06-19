@@ -1,4 +1,4 @@
-from django.http import HttpResponseServerError, JsonResponse
+from django.http import HttpResponseBadRequest, HttpResponseServerError, JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 from .client import MyInfoClient
@@ -42,10 +42,10 @@ def get_authorise_url(request):
 @require_http_methods(['POST'])
 @myinfoclient_required()
 def get_person(request):
-    payload = json.loads(request.body)
     client = request.session['MyInfoClient']
     
     try:
+        payload = json.loads(request.body)
         response = client.get_access_token(payload['code'])
         
         # sleep for 1 second here to avoid the following error:
@@ -76,9 +76,17 @@ def get_person(request):
         return HttpResponseServerError()
 
 
+@require_http_methods(['GET'])
 def callback(request):
+    # when user decline authorization
+    error = request.GET.get('error', '')
+    if error:
+        error_desc = request.GET.get('error-description', '')
+        return render(request, 'myinfo/index.html', {'error': error, 'error_desc': error_desc})
+    
     return render(request, 'myinfo/index.html')
 
 
+@require_http_methods(['GET'])
 def index(request):
     return render(request, 'myinfo/index.html')
