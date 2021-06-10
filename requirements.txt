@@ -4,7 +4,7 @@ cffi==1.14.0
 chardet==3.0.4
 coverage==5.1
 cryptography==2.9.2
-Django==3.0.7
+Django==3.1.12
 django-environ==0.4.5
 idna==2.9
 jwcrypto==0.7
